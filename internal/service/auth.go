@@ -35,6 +35,14 @@ func (s *AuthService) CreateUser(user entity.User) (int, error) {
 	return s.repo.CreateUser(user)
 }
 
+func (s *AuthService) DeleteUser(username string) error {
+	err := s.repo.DeleteUser(username)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 func (s *AuthService) GenerateToken(username, password string) (string, error) {
 	user, err := s.repo.GetUser(username, generatePasswordHash(password))
 	if err != nil {

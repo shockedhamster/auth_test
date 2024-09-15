@@ -33,3 +33,10 @@ func (r *AuthPostgres) GetUser(username, password string) (entity.User, error) {
 
 	return user, err
 }
+
+func (r *AuthPostgres) DeleteUser(username string) error {
+	query := fmt.Sprintf("DELETE FROM %s WHERE username=$1", usersTable)
+	r.db.QueryRow(query, username)
+	fmt.Println("User delete is complete", username)
+	return nil
+}

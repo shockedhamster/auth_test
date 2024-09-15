@@ -10,6 +10,12 @@ import (
 	"github.com/spf13/viper"
 )
 
+//	@title			Api auth test project
+//	@version		1.0
+//	@description	This is a sample server celler server.
+
+// @host		localhost:8080
+// @BasePath	/
 func main() {
 	logrus.SetFormatter(new(logrus.JSONFormatter))
 	if err := InitConfig(); err != nil {

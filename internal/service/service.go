@@ -9,6 +9,7 @@ type Authorization interface {
 	CreateUser(user entity.User) (int, error)
 	GenerateToken(username, password string) (string, error)
 	ParseToken(token string) (int, error)
+	DeleteUser(username string) error
 }
 
 type Service struct {
