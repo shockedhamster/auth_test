@@ -24,3 +24,8 @@ func (s *Server) Run(handler http.Handler) error {
 func (s *Server) Shutdown(ctx context.Context) error {
 	return s.httpServer.Shutdown(ctx)
 }
+
+func (s *Server) GracefulShutdown(ctx context.Context) error {
+
+	return nil
+}

@@ -30,7 +30,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 	testAPI := router.Group("/api", h.userIdentity)
 	{
 		testAPI.POST("/hello", h.hello)
-		testAPI.DELETE("/delete-user", h.deleteUser) // вынести код по удалению в отдельный сервис
+		testAPI.DELETE("/delete-user", h.deleteUser)
 	}
 
 	return router

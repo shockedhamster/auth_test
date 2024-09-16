@@ -25,7 +25,7 @@ func (h *Handler) deleteUser(c *gin.Context) {
 		return
 	}
 
-	err := h.services.Authorization.DeleteUser(input.Username)
+	err := h.services.Edit.DeleteUser(input.Username)
 	if err != nil {
 		newErrorResponce(c, http.StatusInternalServerError, err.Error())
 		return
