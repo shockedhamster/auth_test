@@ -13,12 +13,13 @@ func (h *Handler) hello(c *gin.Context) {
 	})
 }
 
-type deleteUser struct {
-	Username string `json:"username"`
+type userToMod struct {
+	Username    string `json:"username"`
+	NewUsername string `json:"newusername"`
 }
 
 func (h *Handler) deleteUser(c *gin.Context) {
-	var input deleteUser
+	var input userToMod
 
 	if err := c.BindJSON(&input); err != nil {
 		newErrorResponce(c, http.StatusBadRequest, err.Error())
@@ -35,4 +36,24 @@ func (h *Handler) deleteUser(c *gin.Context) {
 		"status": "user is deleted",
 	})
 
+}
+
+func (h *Handler) updateUsername(c *gin.Context) {
+	var input userToMod
+
+	if err := c.BindJSON(&input); err != nil {
+		newErrorResponce(c, http.StatusBadRequest, err.Error())
+		return
+	}
+
+	id, err := h.services.Edit.UpdateUsername(input.Username, input.NewUsername)
+	if err != nil {
+		newErrorResponce(c, http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"status": "New username is set",
+		"id":     id,
+	})
 }

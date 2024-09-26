@@ -48,7 +48,6 @@ func (s *AuthService) GenerateToken(username, password string) (string, error) {
 		},
 		user.Id,
 	})
-	fmt.Println("token generated...", token)
 
 	return token.SignedString([]byte(signingKey))
 }

@@ -1,8 +1,7 @@
 db:
-  host:     "localhost"
+  host:     "db"
   port:     "5432"
   username: "postgres"
-  password: "admin"
   dbName:   "db_1"
   sslmode:  "disable"
 

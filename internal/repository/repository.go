@@ -12,6 +12,7 @@ type Authorization interface {
 
 type Edit interface {
 	DeleteUser(username string) error
+	UpdateUsername(usernameOld, usernameNew string) (int, error)
 }
 
 type Repository struct {

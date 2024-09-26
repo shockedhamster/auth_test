@@ -17,3 +17,13 @@ func (s *EditService) DeleteUser(username string) error {
 	}
 	return nil
 }
+
+func (s *EditService) UpdateUsername(usernameOld, usernameNew string) (int, error) {
+	id, err := s.repo.UpdateUsername(usernameOld, usernameNew)
+	if err != nil {
+		return 0, err
+	}
+
+	return id, err
+
+}

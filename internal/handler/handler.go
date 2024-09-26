@@ -31,6 +31,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 	{
 		testAPI.POST("/hello", h.hello)
 		testAPI.DELETE("/delete-user", h.deleteUser)
+		testAPI.PATCH("/update-username", h.updateUsername)
 	}
 
 	return router
