@@ -23,7 +23,7 @@ func (h *Handler) signUp(c *gin.Context) {
 	var input entity.User
 
 	if err := c.BindJSON(&input); err != nil {
-		newErrorResponce(c, http.StatusBadRequest, err.Error())
+		newErrorResponce(c, http.StatusBadRequest, "Invalid input body")
 		return
 	}
 
